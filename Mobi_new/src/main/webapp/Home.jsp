@@ -4,15 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css_itplus.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css_itplus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 	<script src="jquery_new.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    
-<title>Trang Chủ</title>
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+	<title>Trang Chủ</title>
 </head>
 <body>
 <div class="col-sm-9">
@@ -71,7 +70,7 @@
         <div class="list-menu">
             <ul class="list-ul-menu">
                 <li class="has-submenu"><a href="${pageContext.request.contextPath}/Home.jsp">Trang Chủ</a></li>         
-                <li class="has-submenu"><a href="#">Sản Phẩm <i class="fa fa-chevron-down"></i></a>
+                <li class="has-submenu"><a href="${pageContext.request.contextPath}/san-pham.jsp">Sản Phẩm <i class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
                         <li class="submenu-item">
                             <ul class="menu-pruct menu-product">
@@ -127,7 +126,6 @@
         </div>
     </div>
     
-    <a href="${pageContext.request.contextPath}/san-pham.jsp" class="btn btn-primary">Add New User</a>
     <div class="content-menu">
         <div class="banner-content">
             <input class="button-back-banner" type="button" id="flip" value="&lt">

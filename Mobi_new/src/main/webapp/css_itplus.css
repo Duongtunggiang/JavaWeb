@@ -9,6 +9,9 @@
 .header.scrolled {
     top: -60px; 
 }
+.nav-item a{
+    color: #ffffff;
+}
 .content-menu{
     position: absolute;
     top: 25%;
@@ -38,6 +41,7 @@
     padding: 0;
     margin: 0;
     text-align: center;
+    z-index: 999;
 }
 .list-ul-menu li{
     list-style-type: none;
@@ -69,7 +73,7 @@
     display: block;
     margin-bottom: 10px;
     text-align: left;
-    width: 75%;
+    width: 69%;
 }
 .submenu-item a {
     color: #000;
@@ -87,6 +91,7 @@
     display: block;
 } */
 /* ////////////////////// */
+
 .banner-content{
     position: relative;
     overflow: hidden;
@@ -282,4 +287,184 @@
 }
 .footer-column ul li {
     margin-bottom: 5px;
+}
+.content-menu-san-pham{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+/* ///// */
+.breadcrumb{
+    position: relative;
+    z-index: -999;
+}
+.production{
+    position: relative;
+    /* top: 20%; */
+    overflow: hidden;
+    height: 300px;
+    margin: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+/* .production-img{
+    width: 300px;
+} */
+.imagess{
+    width: 300px;
+}
+.emgi{
+    width: 300px;
+    height: 300px;
+}
+.list-img-product ul{
+    display: inline-block;
+    padding: 10px;
+}
+.list-img-product ul li{
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+}
+.list-img-product{
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+.chose{
+    border: 2px solid #c3c3c3;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin: 5px; */
+}
+.price{
+    color: red;
+    margin: 10px;
+}
+.check-radios{
+    margin: 5px;
+}
+.chose:active{
+    background-color: #ccc;
+}
+.chose-memory{
+    display: inline-block;
+}
+.chose-color{
+    display: inline-block;
+}
+.information-product{
+    display: grid;
+    grid-template-areas: 
+    "imge imge imge priced priced priced priced priced priced guarantee guarantee guarantee"
+    "News News News News News News News infor infor infor infor infor"
+    ;
+}
+.production{
+    grid-area: imge;
+}
+.priced{
+    grid-area: priced;
+    width: 560px;
+    /* border: 1px solid #c3c3c3; */
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.guarantee{
+    grid-area: guarantee;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    /* margin: 10px; */
+    width: 260px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.guarant{
+    margin: 10px;
+    
+}
+.news{
+    grid-area: News;
+    margin: 20px;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.new-item{
+    margin: 10px;
+}
+.information{
+    grid-area: infor;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.infor-item{
+    margin: 10px;
+}
+.info-img{
+    width: 200px;
+    height: 340px;
+}
+.info-text{
+    margin: 10px;
+    text-align: left;
+}
+.button-show-infor{
+    background-color: #89e689;
+    border: 0 solid;
+    margin: 10px;
+}
+.button-show-infor:hover{
+    background-color: #3bb03b;
+}
+.button-show-infor:active{
+    background-color: #2d862d;
+}
+.button-pay{
+    width: 100%;
+    border: none;
+    margin: 5px 10px 5px 5px;
+    height: 40px;
+    font-weight: bold;
+}
+.button-pay-now{
+    background: linear-gradient(70deg, #ff0000, #ff9900);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.button-installment{
+    background: linear-gradient(70deg, #09c03c, #6d9f18);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.button-pay-later{
+    background: linear-gradient(70deg, #006aff, #00d0ff);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.button-add{
+    background-color: #89e689;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.fa-shield{
+    color: #2d862d;
+}
+.fa-check-circle{
+    color: #2d862d;
+}
+.gom{
+    margin-left: 10px;
 }

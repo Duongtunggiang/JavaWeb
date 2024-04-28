@@ -85,3 +85,13 @@ $(document).ready(function() {
         }
     );
 });
+$(document).ready(function() {
+    $('.chose-memory').click(function() {
+      $('.check-radio-memory').prop('checked', false);
+      $(this).find('.check-radio-memory').prop('checked', true);
+    });
+    $('.chose-color').click(function() {
+        $('.check-radio-color').prop('checked', false);
+        $(this).find('.check-radio-color').prop('checked', true);
+      });
+  });
