@@ -14,30 +14,6 @@
 	<title>Trang Chủ</title>
 </head>
 <body>
-<div class="col-sm-9">
-	<div class="row">
-		<c:forEach items="${listP}" var="o">
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="card">
-					<img class="card-img-top" alt="" src="${o.img}">
-					<div class="card-body">
-						<h4 class="card-title show_txt"><a href="#" title="View Producr">${o.productName}</a></h4>
-						<p class="card-text show_txt">${o.productType}</p>
-						<div class="row">
-							<div class="col">
-								<p class="btn btn-danger btn-block">${o.unitPrice}</p>
-							</div>
-							<div class="col">
-								<a href="#" class="btn btn-warning btn-sm">Add to card</a>
-							</div>
-						</div>
-					</div>
-				</div>		
-			</div>
-
-		</c:forEach>
-		</div>
-	</div>
     <div class="header">
         <div class="menu menu-head">
             <ul class="nav justify-content-end">
@@ -52,14 +28,10 @@
                         <i class="fa fa-user na" title="Cá nhân"></i>
                     </a>
                 </li>
-                
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> -->
             </ul>
         </div>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/Home.jsp" >
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/Home" >
                 <img class="logo-it" src="LoGo_ITPLUS__1_-removebg.png" width="30px" height="50px">
                 <i  title="Logo">Mobile Smart</i></a>
             <form class="form-inline" style="margin-right: 20px;">
@@ -69,7 +41,7 @@
         </nav>
         <div class="list-menu">
             <ul class="list-ul-menu">
-                <li class="has-submenu"><a href="${pageContext.request.contextPath}/Home.jsp">Trang Chủ</a></li>         
+                <li class="has-submenu"><a href="${pageContext.request.contextPath}/Home">Trang Chủ</a></li>         
                 <li class="has-submenu"><a href="${pageContext.request.contextPath}/san-pham.jsp">Sản Phẩm <i class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
                         <li class="submenu-item">
@@ -143,161 +115,43 @@
         </div>
         <div class="promotion">
             <div class="list-promotion">
-                <label for="" class="text-promotion"><b>Khuyen mai</b></label>
-                <div class="container-promotion">
-                    <div class="goods-promotion">
-                        <a href="#">
-                        <img width="100px" height="150px" src="" alt="">
-                        <h5 style="color: red;">10.000.000d</h5>
-                        <p>iPhone 11</p>
-                        </a>
-                    </div>
-                
-                    <div class="goods-promotion">
-                        <a href="#">
-                        <img width="100px" height="150px" src="" alt="">
-                        <h5 style="color: red;">12.000.000d</h5>
-                        <p>Samsung Galaxy S20</p>
-                        </a>
-                    </div>
-                
-                    <div class="goods-promotion">
-                        <a href="#">
-                        <img width="100px" height="150px" src="" alt="">
-                        <h5 style="color: red;">8.000.000d</h5>
-                        <p>Xiaomi Redmi Note 9</p>
-                        </a>
-                    </div>
-                </div>
+            <label for="" class="text-promotion"><b>Khuyen mai</b></label>
+               <c:forEach items="${listP}" var="o">
+	                <div class="container-promotion">
+	                    <div class="goods-promotion">
+	                        <a href="#">
+	                        <img width="100px" height="150px" src="${o.img }" alt="">
+	                        <h5 style="color: red;">${o.unitPrice}</h5>
+	                        <p>${o.productName}</p>
+	                        </a>
+	                    </div>
+	                </div>
+                </c:forEach>
             </div>
         </div>
-        <div class="list-goods">
-            <div class="funct">
-                <ul class="orther-list">
-                    <li><a href="#">iPhone 15Promax</a></li>
-                    <li><a href="#">iPhone 15Pro</a></li>
-                    <li><a href="#">iPhone 14Promax</a></li>
-                    <li><a href="#">iPhone 14Pro</a></li>
-                </ul>
-            </div>
-            <div class="container content">
-                <div class="row">
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 1</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 1</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 2</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 2</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 3</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 3</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 4</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 4</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 5</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 5</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 1</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 1</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 2</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 2</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 3</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 3</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 4</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 4</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="card">
-                                <img src="LoGo_ITPLUS__1_-removebg.png" class="card-img-top" alt="Product 1">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="margin-top: -20px;">Sản phẩm 5</h6>
-                                    <p class="card-text" style="font-size: 13px;">Mô tả sản phẩm 5</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>                 
-                </div>
-            </div>
-        </div>
-
+		        <div class="list-goods">
+		            <div class="funct">
+		            <c:forEach items="${listP}" var="o">
+		                <ul class="orther-list">
+		                    <li><a href="#">${o.productName}</a></li>
+		                </ul></c:forEach>
+		            </div>
+		            <div class="row">
+						<c:forEach items="${listP}" var="o">
+							<div class="col-lg-2 col-md-3 col-6">
+								<div class="card">
+									<img src="${o.img}" class="card-img-top" alt="Product 1">
+									<div class="card-body">
+										<h5 class="card-text">${o.productName}</h5>
+										<p class="text-danger"><b>${o.unitPrice}</b></p>
+										<p class="card-title">${o.productType}</p>
+										<a href="#" class="btn btn-primary">Mua ngay</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+		        </div>
         
         <div class="footer">
             <div class="container">

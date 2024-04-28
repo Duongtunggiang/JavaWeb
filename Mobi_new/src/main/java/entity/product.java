@@ -1,6 +1,7 @@
 package entity;
 
 public class product {
+	private static final long serialVesionUID = 1L;
 	private int id;
 	private String productName;
 	private String productType;

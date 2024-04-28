@@ -43,7 +43,7 @@
         </nav>
         <div class="list-menu">
             <ul class="list-ul-menu">
-                <li class="has-submenu"><a href="${pageContext.request.contextPath}/Home.jsp">Trang Chủ</a></li>         
+                <li class="has-submenu"><a href="${pageContext.request.contextPath}/Home">Trang Chủ</a></li>         
                 <li class="has-submenu"><a href="${pageContext.request.contextPath}/san-pham.jsp">Sản Phẩm <i class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">
                         <li class="submenu-item">
@@ -112,6 +112,7 @@
             </nav>
         <div class="information-product">
             <div class="production">
+           <%--  <c:forEach items="${producted}" var="o"> --%>
                 <div class="production-img">
                     <input class="button-back-banner" type="button" id="flip" value="&lt">
                     <div class="imagess panel"><img class="emgi" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f3832e180145769.6505ae76214ca.jpg" alt=""></div>
@@ -126,6 +127,7 @@
                         </ul>
                     </div>
                 </div>
+                <%-- </c:forEach> --%>
             </div>
             <div class="priced">
                 <h3 class="name-phone">iPhone 11</h3>

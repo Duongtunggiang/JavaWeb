@@ -23,25 +23,18 @@ public class DAO {
 			resultSet = prepare.executeQuery();
 			while (resultSet.next()) {
 				list.add(new product(
-						resultSet.getInt(1),
-						resultSet.getString(2),
-						resultSet.getString(3),
-						resultSet.getString(4),
-						resultSet.getInt(5)
+						resultSet.getInt("id"),
+						resultSet.getString("productName"),
+						resultSet.getString("productType"),
+						resultSet.getString("img"),
+						resultSet.getInt("unitPrice")
 						));
 			}
 			
 		}catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		return list;
-	}
-	public static void main(String[] args) {
-		DAO dao = new DAO();
-		
-		List<product> list = dao.getAllProduct();
-		for (product o : list) {
-			System.out.println(o);
-		}
 	}
 }
