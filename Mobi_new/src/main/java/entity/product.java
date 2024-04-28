@@ -7,10 +7,8 @@ public class product {
 	private String img;
 	private int unitPrice;
 	public product() {
-		// TODO Auto-generated constructor stub
 	}
 	public product(int id, String productName, String productType, String img, int unitPrice) {
-		super();
 		this.id = id;
 		this.productName = productName;
 		this.productType = productType;

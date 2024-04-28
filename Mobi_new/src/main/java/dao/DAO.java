@@ -29,11 +29,9 @@ public class DAO {
 						resultSet.getString(4),
 						resultSet.getInt(5)
 						));
-				
 			}
 			
 		}catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 		return list;

@@ -19,10 +19,21 @@ public class HomeControll extends HttpServlet {
     public HomeControll() {
         super();
     }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private product product;
+    public void init() {
+    	product = new product();
+    }
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+//		writer.close();
+	}
+
+	private void home(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
 		response.setContentType("text/html");
 		
 		DAO dao = new DAO();
@@ -33,10 +44,7 @@ public class HomeControll extends HttpServlet {
 //		writer.println("<h1>Xin chao toi la Duong</h1>");
 		
 		request.getRequestDispatcher("Home.jsp").forward(request, response);
-//		writer.close();
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
