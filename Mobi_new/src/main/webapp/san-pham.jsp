@@ -25,10 +25,20 @@
                     <a class="nav-link" href="#">Giỏ hàng <i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Account
-                        <i class="fa fa-user na" title="Cá nhân"></i>
-                    </a>
-                </li>
+				    <c:choose>
+				        <c:when test="${empty sessionScope.username}">
+				            <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Account
+				                <i class="fa fa-user na" title="Cá nhân"></i>
+				            </a>
+				        </c:when>
+				        <c:otherwise>
+				            <a class="nav-link" href="${pageContext.request.contextPath}/customerInfo.jsp">
+				                <span id="username">${sessionScope.username}</span> 
+				                <i class="fa fa-user na" title="Cá nhân"></i>
+				            </a>
+				        </c:otherwise>
+				    </c:choose>
+				</li>
                 
             </ul>
         </div>
@@ -112,10 +122,10 @@
             </nav>
         <div class="information-product">
             <div class="production">
-           <%--  <c:forEach items="${producted}" var="o"> --%>
+           <c:set var="product" value="${producted[0]}" />
                 <div class="production-img">
                     <input class="button-back-banner" type="button" id="flip" value="&lt">
-                    <div class="imagess panel"><img class="emgi" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f3832e180145769.6505ae76214ca.jpg" alt=""></div>
+                    <div class="imagess panel"><img class="emgi" src="${o.img}" alt=""></div>
                     <div class="imagess panel"><img class="emgi"  src="https://images.macrumors.com/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature-2.jpg" alt=""></div>
                     <div class="imagess panel"><img class="emgi" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbjJ7V74vIEYBQAOH3akynXRIzIykiESLkNHBkyBP&s" alt=""></div>
                     <input class="button-next-banner" type="button" id="flop" value="&gt">
@@ -127,17 +137,17 @@
                         </ul>
                     </div>
                 </div>
-                <%-- </c:forEach> --%>
+              <%--   </c:forEach>  --%>
             </div>
             <div class="priced">
-                <h3 class="name-phone">iPhone 11</h3>
-                <h4 class="price">11.000.000đ</h4> <span><del>12.890.000đ</del></span>
+                <h3 class="name-phone">${product.productName}</h3>
+				<h4 class="price">${product.unitPrice}đ</h4> <span><del>${product.oldPrice}đ</del></span>
                 <div class="chose-memories">
                     <p><b>Chọn dung lượng</b></p>
                     <div class="chose-memory chose">
                         <input type="radio" class="check-radio-memory" id="chose1">
-                        <label for="myCheckbox" >64Gb</label>
-                        <h6 class="price">11.000.000đ</h6>
+						<label for="myCheckbox">64Gb</label>
+						<h6 class="price">${product.unitPrice}đ</h6>
                     </div>
                     <div class="chose-memory chose">
                         <input type="radio" class="check-radio-memory" id="chose2">

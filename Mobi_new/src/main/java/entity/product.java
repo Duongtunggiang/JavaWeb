@@ -5,16 +5,28 @@ public class product {
 	private int id;
 	private String productName;
 	private String productType;
+	private String productCategoryPath;
 	private String img;
-	private int unitPrice;
-	public product() {
-	}
-	public product(int id, String productName, String productType, String img, int unitPrice) {
+	private int unitPrice;	
+	
+	public product(int id, String productName, String productType, String productCategoryPath, String img,
+			int unitPrice) {
+		super();
 		this.id = id;
 		this.productName = productName;
 		this.productType = productType;
+		this.productCategoryPath = productCategoryPath;
 		this.img = img;
 		this.unitPrice = unitPrice;
+	}
+	public String getProductCategoryPath() {
+		return productCategoryPath;
+	}
+	public void setProductCategoryPath(String productCategoryPath) {
+		this.productCategoryPath = productCategoryPath;
+	}
+
+	public product() {
 	}
 	public int getId() {
 		return id;
@@ -48,7 +60,7 @@ public class product {
 	}
 	@Override
 	public String toString() {
-		return "product [id=" + id + ", productName=" + productName + ", productType=" + productType + ", img=" + img
-				+ ", unitPrice=" + unitPrice + "]";
+		return "product [id=" + id + ", productName=" + productName + ", productType=" + productType
+				+ ", productCategoryPath=" + productCategoryPath + ", img=" + img + ", unitPrice=" + unitPrice + "]";
 	}
 }

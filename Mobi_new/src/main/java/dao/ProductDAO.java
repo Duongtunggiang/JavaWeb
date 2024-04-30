@@ -27,11 +27,12 @@ public class ProductDAO {
                 int id = resultSet.getInt("id");
                 String productName = resultSet.getString("productName");
                 String productType = resultSet.getString("productType");
+                String productCategoryPath = resultSet.getString("productCategoryPath");
                 String img = resultSet.getString("img");
                 int unitPrice = resultSet.getInt("unitPrice");
 
                 // Khởi tạo đối tượng product
-                product = new product(id, productName, productType, img, unitPrice);
+                product = new product(id, productName, productType,productCategoryPath, img, unitPrice);
             }
 
             resultSet.close();

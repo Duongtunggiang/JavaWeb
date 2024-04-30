@@ -475,6 +475,9 @@
 .card-title{
 	font-size: 70%;
 }
+.card-text{
+	font-size: 11px;
+}
 .btn-group-sm>.btn, .btn-sm {
     padding: 0.25px 6.5px;
     font-size: 9.875px;

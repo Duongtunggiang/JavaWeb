@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,20 @@
                     <a class="nav-link" href="#">Giỏ hàng <i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Account
-                        <i class="fa fa-user na" title="Cá nhân"></i>
-                    </a>
-                </li>
+				    <c:choose>
+				        <c:when test="${empty sessionScope.username}">
+				            <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Account
+				                <i class="fa fa-user na" title="Cá nhân"></i>
+				            </a>
+				        </c:when>
+				        <c:otherwise>
+				            <a class="nav-link" href="${pageContext.request.contextPath}/customerInfo.jsp">
+				                <span id="username">${sessionScope.username}</span> 
+				                <i class="fa fa-user na" title="Cá nhân"></i>
+				            </a>
+				        </c:otherwise>
+				    </c:choose>
+				</li>
             </ul>
         </div>
         <nav class="navbar navbar-light bg-light">
@@ -116,7 +127,7 @@
         <div class="promotion">
             <div class="list-promotion">
             <label for="" class="text-promotion"><b>Khuyen mai</b></label>
-               <c:forEach items="${listP}" var="o">
+               <c:forEach items="${Top1}" var="o">
 	                <div class="container-promotion">
 	                    <div class="goods-promotion">
 	                        <a href="#">
@@ -138,16 +149,18 @@
 		            </div>
 		            <div class="row">
 						<c:forEach items="${listP}" var="o">
-							<div class="col-lg-2 col-md-3 col-6">
+							<div class="col-lg-2 col-md-3 col-5">
+							<a href="Home?action=productDetails&id=${o.id}">
 								<div class="card">
 									<img src="${o.img}" class="card-img-top" alt="Product 1">
 									<div class="card-body">
 										<h5 class="card-text">${o.productName}</h5>
 										<p class="text-danger"><b>${o.unitPrice}</b></p>
 										<p class="card-title">${o.productType}</p>
-										<a href="#" class="btn btn-primary">Mua ngay</a>
+										<%-- <a href="Home?action=productDetails&id=${o.id}">Xem chi tiết</a>
+										<a href="#" class="btn btn-primary">Mua ngay</a> --%>
 									</div>
-								</div>
+								</div></a>
 							</div>
 						</c:forEach>
 					</div>

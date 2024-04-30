@@ -26,6 +26,7 @@ public class DAO {
 						resultSet.getInt("id"),
 						resultSet.getString("productName"),
 						resultSet.getString("productType"),
+						resultSet.getString("productCategoryPath"),
 						resultSet.getString("img"),
 						resultSet.getInt("unitPrice")
 						));
@@ -36,5 +37,28 @@ public class DAO {
 		}
 		
 		return list;
+	}
+	public List<product> getTop1(){
+		List<product> top1 = new ArrayList<>();
+		String top = "SELECT * FROM products ORDER BY id DESC LIMIT 1;";
+		try {
+			connect = new DBContext().getConnection();
+			prepare = connect.prepareStatement(top);
+			resultSet = prepare.executeQuery();
+			while (resultSet.next()) {
+				top1.add(new product(
+						resultSet.getInt("id"),
+						resultSet.getString("productName"),
+						resultSet.getString("productType"),
+						resultSet.getString("productCategoryPath"),
+						resultSet.getString("img"),
+						resultSet.getInt("unitPrice")
+						));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return top1;
 	}
 }
