@@ -122,14 +122,20 @@
             </nav>
         <div class="information-product">
             <div class="production">
-           <c:set var="product" value="${producted[0]}" />
-                <div class="production-img">
-                    <input class="button-back-banner" type="button" id="flip" value="&lt">
-                    <div class="imagess panel"><img class="emgi" src="${o.img}" alt=""></div>
-                    <div class="imagess panel"><img class="emgi"  src="https://images.macrumors.com/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature-2.jpg" alt=""></div>
-                    <div class="imagess panel"><img class="emgi" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbjJ7V74vIEYBQAOH3akynXRIzIykiESLkNHBkyBP&s" alt=""></div>
-                    <input class="button-next-banner" type="button" id="flop" value="&gt">
-                    <div class="list-img-product"> 	
+           <c:set var="product" value="${producted}" />
+
+				<div class="production-img">
+				    <input class="button-back-banner" type="button" id="flip" value="&lt">
+				    <div class="imagess panel"><img class="emgi" src="${product.img}" alt=""></div>
+				    <div class="imagess panel"><img class="emgi" src="https://images.macrumors.com/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature-2.jpg" alt=""></div>
+				    <div class="imagess panel"><img class="emgi" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbjJ7V74vIEYBQAOH3akynXRIzIykiESLkNHBkyBP&s" alt=""></div>
+				    <input class="button-next-banner" type="button" id="flop" value="&gt">
+				    <div class="list-img-product">
+				        <!-- Hiển thị thông tin sản phẩm -->
+				        <h2>${product.productName}</h2>
+				        <p>Product Type: ${product.productType}</p>
+				        <p>Product Category: ${product.productCategoryPath}</p>
+				        <p>Unit Price: ${product.unitPrice}</p>
                         <ul class="uu">
                             <li></li>
                             <li></li>

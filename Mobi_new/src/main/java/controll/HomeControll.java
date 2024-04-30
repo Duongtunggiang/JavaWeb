@@ -93,8 +93,6 @@ public class HomeControll extends HttpServlet {
 		                break;
 		        }
 		 }
-
-		
 	}
 
 	private void home(HttpServletRequest request, HttpServletResponse response) 
@@ -109,6 +107,14 @@ public class HomeControll extends HttpServlet {
 		request.setAttribute("Top1", top1);
 
 		request.getRequestDispatcher("Home.jsp").forward(request, response);
+	}
+	private void productDetails(HttpServletRequest request, HttpServletResponse response) 
+	        throws ServletException, IOException {
+	    int productId = Integer.parseInt(request.getParameter("productId"));
+//	    DAO dao = new DAO();
+	    product product = productDAO.getProductById(productId);
+	    request.setAttribute("producted", product);
+	    request.getRequestDispatcher("san-pham.jsp").forward(request, response);
 	}
 	private void roleBasedRedirect(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -195,13 +201,6 @@ public class HomeControll extends HttpServlet {
 	    }
 
 	    return false; // Trả về false nếu thông tin đăng nhập không hợp lệ
-	}
-	private void productDetails(HttpServletRequest request, HttpServletResponse response) 
-	        throws ServletException, IOException {
-	    int productId = Integer.parseInt(request.getParameter("productId"));
-	    product product = productDAO.getProductById(productId);
-	    request.setAttribute("producted", product);
-	    request.getRequestDispatcher("san-pham.jsp").forward(request, response);
 	}
 
 }
