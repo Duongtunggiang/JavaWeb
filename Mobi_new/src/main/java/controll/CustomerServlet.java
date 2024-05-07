@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/CustomerServlet")
+//@WebServlet("/CustomerServlet")
 public class CustomerServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +20,7 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
+//        int userId = request.getIntHeader("userId");
 
         if (customerName != null && address != null && phoneNumber != null && email != null) {
             Connection conn = null;
@@ -38,6 +39,7 @@ public class CustomerServlet extends HttpServlet {
                 stmt.setString(2, address);
                 stmt.setString(3, phoneNumber);
                 stmt.setString(4, email);
+//                stmt.setInt(5, userId);
 
                 int rowsAffected = stmt.executeUpdate();
 

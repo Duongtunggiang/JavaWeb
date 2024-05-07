@@ -22,7 +22,7 @@
                     <a class="nav-link active" href="#">Hỗ trợ <i class="fa fa-life-ring"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Giỏ hàng <i class="fa fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/card.jsp">Giỏ hàng <i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item">
 				    <c:choose>
@@ -95,7 +95,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="has-submenu"><a href="#">Giới Thiệu</a></li>
+                <li class="has-submenu"><a href="${pageContext.request.contextPath}/gioi-thieu.jsp">Giới Thiệu</a></li>
                 <li class="has-submenu"><a href="#">Dịch Vụ</a></li>
                 <li class="has-submenu"><a href="#">Tuyển Dụng <i class="fa fa-chevron-down"></i></a>
                     <ul class="submenu">

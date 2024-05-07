@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-    <link rel="stylesheet" href="css_itplus.css">
+<meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="jquery_new.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
-	<title>Sản phẩm</title>
+    <link rel="stylesheet" href="css_itplus.css">
+    <link rel="stylesheet" href="card.css">
+    <script src="jquery_new.js"></script>
+    <script src="home_jquery.js"></script>
+<title>Giỏ hàng</title>
 </head>
 <body>
     <div class="header">
@@ -21,7 +22,6 @@
                     <a class="nav-link active" href="#">Hỗ trợ <i class="fa fa-life-ring"></i></a>
                 </li>
                 <li class="nav-item">
-                    
                     <a class="nav-link" href="${pageContext.request.contextPath}/card.jsp">Giỏ hàng <i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item">
@@ -39,11 +39,10 @@
 				        </c:otherwise>
 				    </c:choose>
 				</li>
-                
             </ul>
         </div>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#" >
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/Home" >
                 <img class="logo-it" src="LoGo_ITPLUS__1_-removebg.png" width="30px" height="50px">
                 <i  title="Logo">Mobile Smart</i></a>
             <form class="form-inline" style="margin-right: 20px;">
@@ -108,120 +107,86 @@
                 </li>
             </ul>
         </div>
-        
     </div>
-    <div class="content-menu-san-pham">
-        <nav aria-label="breadcrumb">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Home.jsp">Trang Chủ</a></li>
-                    <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/san-pham.jsp">Sản Phẩm</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                    </ol>
-                </nav>
-            </nav>
-        <div class="information-product">
-            <div class="production">
-           <%-- <c:set var="product" value="${producted}" /> --%>
-				<c:forEach items="${producted}" var="product">
-				<div class="production-img">
-				    <input class="button-back-banner" type="button" id="flip" value="&lt">
-				    <div class="imagess panel"><img class="emgi" src="${product.img}" alt=""></div>
-				    <div class="imagess panel"><img class="emgi" src="https://images.macrumors.com/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature-2.jpg" alt=""></div>
-				    <div class="imagess panel"><img class="emgi" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLbjJ7V74vIEYBQAOH3akynXRIzIykiESLkNHBkyBP&s" alt=""></div>
-				    <input class="button-next-banner" type="button" id="flop" value="&gt">
-				    <div class="list-img-product">
-				        <!-- Hiển thị thông tin sản phẩm -->
-				        <h2>${product.productName}</h2>
-				        <p>Product Type: ${product.productType}</p>
-				        <p>Product Category: ${product.productCategoryPath}</p>
-				        <p>Unit Price: ${product.unitPrice}</p>
-                        <ul class="uu">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-               </c:forEach>  
-            </div>
-            <div class="priced">
-                <h3 class="name-phone">${product.productName}</h3>
-				<h4 class="price">${product.unitPrice}đ</h4> <span><del>${product.oldPrice}đ</del></span>
-                <div class="chose-memories">
-                    <p><b>Chọn dung lượng</b></p>
-                    <div class="chose-memory chose">
-                        <input type="radio" class="check-radio-memory" id="chose1">
-						<label for="myCheckbox">64Gb</label>
-						<h6 class="price">${product.unitPrice}đ</h6>
-                    </div>
-                    <div class="chose-memory chose">
-                        <input type="radio" class="check-radio-memory" id="chose2">
-                        <label for="myCheckbox" >128Gb</label>
-                        <h6 class="price">12.890.000đ</h6>
-                    </div>                    
-                </div>
-                <div class="chose-colors">
-                    <p><b>Chọn màu</b></p>
-                    <div class="chose chose-color">
-                        <input type="radio" class="check-radio-color">
-                        <label for="myCheckbox" >Đen</label>
-                        <h6 class="price">11.000.000đ</h6>
-                    </div>
-                    <div class="chose chose-color">
-                        <input type="radio" class="check-radio-color" >
-                        <label for="myCheckbox" >Trắng</label>
-                        <h6 class="price">12.890.000đ</h6>
-                    </div>        
-                    <div class="chose chose-color">
-                        <input type="radio" class="check-radio-color" >
-                        <label for="myCheckbox" >Vàng gold</label>
-                        <h6 class="price">12.890.000đ</h6>
-                    </div> 
-                    <div class="chose chose-color">
-                        <input type="radio" class="check-radio-color">
-                        <label for="myCheckbox" >Xanh</label>
-                        <h6 class="price">12.890.000đ</h6>
-                    </div>             
-                </div>
-                <div class="pay">
-                    <input type="button" class="button-pay button-pay-now" id="button-pay-now" value="Thanh toán ngay"><br>
-                    <input type="button" class="button-pay button-installment" id="button-installment" value="Trả góp"><br>
-                    <input type="button" class="button-pay button-pay-later" id="button-pay-later" value="Thanh toán khi nhận hàng"><br><br>
-                    <button type="button" class="button-add button-add-to-card" id="button-add-to-card" value="Thêm vào giỏ hàng">Thêm vào giỏ hàng <i class="fa fa-shopping-cart"></i></button>
-                    <br>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Đã đi kèm theo phụ kiện</p>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Tặng kèm sạc nhanh 20W</p>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Tặng kèm cáp sạc Type-C to Lightning</p>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Tặng kèm tai nghe</p>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Tặng kèm ốp lưng chống sóc</p>
-                    <p class="gom"><i class="fa fa-check-circle"></i> Đã có tem niêm phong ốc</p>
-                </div>
-            </div>
-            <div class="guarantee">
-                <p class="guarant"><b>Bảo hành 12 tháng</b></p>
-                <p class="guarant"><i class="fa fa-shield"></i> Bảo hành 12 tháng</p>
-                <p class="guarant"><i class="fa fa-shield"></i> Hỗ trợ 1 đổi 1 trong 30 ngày</p>
-            </div>
-            <div class="news">
-                <p class="new-item">Tất cả iPhone chính hãng VN/A, LL/A được phân phối tại Mobile Smart đều được nhập trực tiếp từ Công ty TNHH Apple Việt Nam. Mobile Smart là nhà bán lẻ ủy quyền chính thức của Apple tại Việt Nam.</p>
-            </div>
-            <div class="information">
-                <p class="infor-item"><b>Thông số kĩ thuật của <a href="#">iPhone 11</a></b></p>
-                <img class="info-img" src="LoGo_ITPLUS__1_-removebg.png" alt="">
-                <div class="info-text">
-                    <p><b>Công nghệ màn hình:</b> IPS LCD</p>
-                    <p><b>Tần số quét:</b> 60Hz</p>
-                    <p><b>Kích thước màn hình:</b> 6.1 inch</p>
-                    <p><b>Hệ điều hành: </b>IOS</p>
-                    <p><b>Vi xử lý: </b>A15 Bionic</p>
-                    <p><b>Sim: </b>1 nano SIM và 1 eSIM</p>
-                </div>
-                <input type="button" class="button-show-infor" id="button-show-infor" value="Xem chi tiết">
-            </div>
+    
+        <div class="container-card">
+        <h1>Giỏ hàng</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng cộng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="iphone.jpg" alt="iPhone">
+                        <span>iPhone 11</span>
+                    </td>
+                    <td>11.000.000đ</td>
+                    <td>
+                        <div class="btn-quantity">
+                            <button class="btn-minus">-</button>
+                            <input type="number" min="0" value="1">
+                            <button class="btn-plus">+</button>
+                        </div>
+                    </td>
+                    <td class="total-price">11.000.000đ</td>
+                    <td>
+                        <button class="btn-remove">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="iphone.jpg" alt="iPhone">
+                        <span>iPhone 11</span>
+                    </td>
+                    <td>11.000.000đ</td>
+                    <td>
+                        <div class="btn-quantity">
+                            <button class="btn-minus">-</button>
+                            <input type="number" min="0" value="1">
+                            <button class="btn-plus">+</button>
+                        </div>
+                    </td>
+                    <td class="total-price">11.000.000đ</td>
+                    <td>
+                        <button class="btn-remove">Xóa</button>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <img src="iphone.jpg" alt="iPhone">
+                        <span>iPhone 11</span>
+                    </td>
+                    <td>11.000.000đ</td>
+                    <td>
+                        <div class="btn-quantity">
+                            <button class="btn-minus">-</button>
+                            <input type="number" min="0" value="1">
+                            <button class="btn-plus">+</button>
+                        </div>
+                    </td>
+                    <td class="total-price">11.000.000đ</td>
+                    <td>
+                        <button class="btn-remove">Xóa</button>
+                    </td>
+                </tr>
+                <!-- Thêm các hàng sản phẩm khác tương tự ở đây -->
+            </tbody>
+        </table>
+        <div class="total">
+            <span>Tổng tiền:</span>
+            <span id="total-amount"></span>
         </div>
-       
-
+        <button class="btn-checkout">Thanh toán</button>
+    </div>
+    <script src="card.js"></script>
+        
         <div class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -251,9 +216,10 @@
                 </div>
             </div>
         </div>	
+
+        <!-- Làm thông tin gì cũng đều phải nằm trong thẻ div cuối này!! -->
     </div>
-<a href="${pageContext.request.contextPath}/Home.jsp">Day la trang san pham</a>
-    	<script src="home_jquery.js"></script>
+	<script src="home_jquery.js"></script>
   	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

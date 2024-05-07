@@ -19,10 +19,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import context.DBContext;
+import dao.CustomerDAO;
 import dao.DAO;
 import dao.ProductDAO;
 import dao.RoleDAO;
+import dao.UserDAO;
+import entity.Customer;
 import entity.product;
+import entity.user;
 
 @WebServlet("/Home")
 public class HomeControll extends HttpServlet {
@@ -108,6 +112,21 @@ public class HomeControll extends HttpServlet {
 
 		request.getRequestDispatcher("Home.jsp").forward(request, response);
 	}
+	private void inforUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		response.setContentType("text/html");
+		
+		UserDAO infor = new UserDAO();
+		CustomerDAO inforCustomer = new CustomerDAO();
+		
+		List<Customer> informationCus = inforCustomer.getAllCustomer();
+		request.setAttribute("inforCus", informationCus);
+		
+		List<user> information = infor.getAllUser();
+		request.setAttribute("inforUser", information);
+		
+		request.getRequestDispatcher("customerInfo.jsp").forward(request, response);
+	}
 	private void productDetails(HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException, IOException {
 	    int productId = Integer.parseInt(request.getParameter("productId"));
@@ -124,7 +143,7 @@ public class HomeControll extends HttpServlet {
 	    if (userRole.equals("admin")) {
 	        response.sendRedirect("admin.jsp");
 	    } else if (userRole.equals("customer")) {
-	        response.sendRedirect("index.jsp");
+	        response.sendRedirect("Home");
 	    } else {
 	        // Xử lý khi vai trò không xác định
 	        String errorMessage = "Vai trò của người dùng không xác định";

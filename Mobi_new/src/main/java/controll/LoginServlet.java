@@ -37,13 +37,12 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("username");
             String pass = request.getParameter("password");
 
-            // Tạo truy vấn SQL
-            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-            statement = connection.prepareStatement(sql);
+            // Kiểm tra đăng nhập cho người dùng
+            String userLoginQuery = "SELECT * FROM users WHERE username = ? AND password = ?";
+            statement = connection.prepareStatement(userLoginQuery);
             statement.setString(1, username);
             statement.setString(2, pass);
 
-            // Thực thi truy vấn
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -54,10 +53,33 @@ public class LoginServlet extends HttpServlet {
 
                 // Chuyển hướng người dùng đến trang "Home"
                 response.sendRedirect("Home");
-            } else {
-                // Nếu thông tin sai, hiển thị thông báo lỗi hoặc cho phép người dùng thử lại
-                response.getWriter().println("Thông tin đăng nhập không chính xác. Vui lòng thử lại.");
+                return;
             }
+
+            // Kiểm tra đăng nhập cho admin
+            String adminname = request.getParameter("username");
+            String adminpass = request.getParameter("password");
+
+            String adminLoginQuery = "SELECT * FROM admins WHERE name = ? AND password = ?";
+            statement = connection.prepareStatement(adminLoginQuery);
+            statement.setString(1, adminname);
+            statement.setString(2, adminpass);
+
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                // Lưu tên admin vào session
+                HttpSession session = request.getSession();
+                session.setAttribute("name", adminname);
+                session.setAttribute("isLoggedIn", true);
+
+                // Chuyển hướng admin đến trang "admin.jsp"
+                response.sendRedirect("admin.jsp");
+                return;
+            }
+
+            // Nếu thông tin sai, hiển thị thông báo lỗi hoặc cho phép người dùng thử lại
+            response.getWriter().println("Thông tin đăng nhập không chính xác. Vui lòng thử lại.");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
